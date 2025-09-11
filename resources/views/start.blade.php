@@ -24,17 +24,17 @@
                 <div>
                     <div class="widget-title">Jumlah</div>
                     <div class="widget-subtitle">Ujian</div>
-                    <div class="widget-int">{{count($ujian)}}</div>
+                    <div class="widget-int"> - </div>
                 </div>
                 <div>
                     <div class="widget-title">Jumlah</div>
                     <div class="widget-subtitle">Sesi</div>
-                    <div class="widget-int">{{count($sesi)}}</div>
+                    <div class="widget-int"> - </div>
                 </div>
                 <div>
                     <div class="widget-title">Jumlah</div>
                     <div class="widget-subtitle">Station</div>
-                    <div class="widget-int">{{count($station)}}</div>
+                    <div class="widget-int"> - </div>
                 </div>
             </div>
             <div class="widget-controls">
@@ -52,7 +52,7 @@
                 <span class="fa fa-user-md"></span>
             </div>
             <div class="widget-data">
-                <div class="widget-int num-count">{{count($penguji)}}</div>
+                <div class="widget-int num-count"> - </div>
                 <div class="widget-title">penguji</div>
                 <div class="widget-subtitle">terdaftar pada CBS-OSOCA</div>
             </div>
@@ -70,7 +70,7 @@
                 <span class="fa fa-user"></span>
             </div>
             <div class="widget-data">
-                <div class="widget-int num-count">{{count($peserta)}}</div>
+                <div class="widget-int num-count">      - </div>
                 <div class="widget-title">Mahasiswa</div>
                 <div class="widget-subtitle">terdaftar pada CBS-OSOCA</div>
             </div>
@@ -116,8 +116,8 @@
                 <h3 class="panel-title">Name Tag Peserta</h3>
             </div>
             <div class="panel-body">
-                <a href="{{route("mahasiswa.nametag.cetak")}}" class="btn btn-primary btn-sm">Catak Name Tag</a> <br><br>
-                <p>Name tag ini digunakan untuk ujian OSCE, pastikan anda membawa nametag ini selama Osce. <br>
+                <a href="{{route("mahasiswa.nametag.cetak")}}" class="btn btn-primary btn-sm" target="_blank">Catak Name Tag</a> <br><br>
+                <p>Name tag ini dapat digunakan untuk ujian OSOCA dan OSCE, pastikan anda membawa nametag ini selama Osce. <br>
                 silahkan print dan masukan kedalam name tag.</p>
                  </div>
         </div>

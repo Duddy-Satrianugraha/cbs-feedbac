@@ -83,7 +83,7 @@
                         @if(is_null(Auth::user()->avatar))
                             <img   id="profile_photo_preview" src="{{ asset('img/user.jpg') }}" alt="{{ Auth::user()->name }}"/>
                         @else
-                            <img id="profile_photo_preview" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}"/>
+                            <img id="profile_photo_preview" src="{{ route('profile.show', basename(Auth::user()->avatar)) }}" alt="{{ Auth::user()->name }}"/>
                         @endif
                         </label>
                          <!-- Input File (Tersembunyi) -->

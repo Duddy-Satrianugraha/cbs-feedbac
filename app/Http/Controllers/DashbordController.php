@@ -19,13 +19,9 @@ class DashbordController extends Controller
      */
     public function index()
     {
-           $ujian = Oujian::all();
-           $sesi = Osesi::all();
-           $station = Ostation::all();
-           $peserta = Opeserta::all();
-           $penguji = Openguji::all();
+
            //$penguji = Ostation::whereNotNull('nama_penguji')->get();
-        return view('start', compact('ujian', 'sesi', 'station', 'peserta','penguji'));
+        return view('start');
     }
 
     /**

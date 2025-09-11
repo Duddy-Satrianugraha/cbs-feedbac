@@ -32,33 +32,11 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Gate::define('Panitia', function ($user){
-            return $user->hasAnyRoles(['98','99', '1', '2', '3','7']);
-        });
-
-        Gate::define('koc', function ($user){
-            return $user->hasAnyRoles(['99', '1']);
-        });
-
-        Gate::define('admin', function ($user){
-            return $user->hasAnyRoles(['99', '2']);
-        });
-
-        Gate::define('materi', function ($user){
-            return $user->hasAnyRoles(['99', '3']);
+            return $user->hasAnyRoles(['98','99']);
         });
 
         Gate::define('mhs', function ($user){
-            return $user->hasAnyRoles(['99', '4']);
-        });
-
-        Gate::define('penguji', function ($user){
-            return $user->hasAnyRoles(['99', '5']);
-        });
-        Gate::define('ps', function ($user){
-            return $user->hasAnyRoles(['99', '6']);
-        });
-        Gate::define('pps', function ($user){
-            return $user->hasAnyRoles(['99', '7']);
+            return $user->hasAnyRoles(['99', '1']);
         });
     }
 

@@ -78,9 +78,21 @@ class PdfController extends Controller
     }
 
     public function mhs(){
-        $user = Auth::user();
+       $user = Auth::user();
+        $avatarBase64 = null;
 
-        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('mhs.pdf.nametag', compact('user'))
+    if ($user->avatar) {
+        $ava = basename($user->avatar);
+        $path = storage_path('app/private/avatar/' . $ava);
+
+        if (file_exists($path)) {
+            $mime = mime_content_type($path);
+            $data = base64_encode(file_get_contents($path));
+            $avatarBase64 = "data:$mime;base64,$data";
+        }
+    }
+           // dd($avatarBase64);
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('mhs.pdf.nametag', compact('user', 'avatarBase64'))
                   ->setPaper('A4', 'potrait'); // bisa A6/A7 dan landscape biar cocok ukuran name tag
 
         return $pdf->stream('nametag_'.$user->username.'.pdf');

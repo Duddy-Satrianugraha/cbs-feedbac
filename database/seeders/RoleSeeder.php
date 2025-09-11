@@ -25,19 +25,10 @@ class RoleSeeder extends Seeder
         ]);
         Role::create([
             'u_id' => 1,
-            'name' => 'Koc',
-            'nama' => 'Ketua OSOKA',
+            'name' => 'mhs',
+            'nama' => 'Mahasiswa',
         ]);
-        Role::create([
-            'u_id' => 2,
-            'name' => 'Admin',
-            'nama' => 'Administrator',
-        ]);
-        Role::create([
-            'u_id' => 3,
-            'name' => 'Materi',
-            'nama' => 'Item Bank Administrator',
-        ]);
-       
+
+
     }
 }

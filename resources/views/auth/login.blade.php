@@ -6,12 +6,12 @@
 
 @section('content')
 
-        <div class="login-title" style="color: #450163;"><strong style="color: white;">Log In</strong> Panitia</div>
+        <div class="login-title" style="color: #450163;"><strong style="color: white;">Log In</strong> Mahasiswa</div>
         <form action="{{ route('login') }}" class="form-horizontal" method="post">
             @csrf
         <div class="form-group @error('username') has-error @enderror">
             <div class="col-md-12">
-                <input type="text" class="form-control" name='username' placeholder="Username" autocomplete="off" />
+                <input type="text" class="form-control" name='username' placeholder="Nomor Pokok Mahasiswa" autocomplete="off" />
             </div>
         </div>
         <div class="form-group @error('password') has-error @enderror">

@@ -32,9 +32,9 @@ class ProfileContoller extends Controller
         $user = Auth::user();
 
         // Hapus foto lama jika ada
-        if ($user->avatar) {
-            Storage::delete('public/' . $user->avatar);
-        }
+       if ($user->avatar && Storage::disk('private')->exists($user->avatar)) {
+                Storage::disk('private')->delete($user->avatar);
+            }
 
         // Ambil file yang diupload
         $file = $request->file('avatar');
@@ -44,14 +44,14 @@ class ProfileContoller extends Controller
         $image = $manager->read($file);
         $image->scaleDown(width: 200);
 
-        $filename = uniqid('avatar_') . '.' . $file->getClientOriginalExtension();
+        $filename = uniqid('avatar_').$user->id . '.' . $file->getClientOriginalExtension();
         $path = 'avatar/' . $filename;
 
         // Simpan gambar hasil resize ke storage/public/avatar
-        Storage::disk('public')->put( $path, (string) $image->toJpeg());
+        Storage::disk('private')->put( $path, (string) $image->toJpeg());
 
         $user->update(['avatar' => $path]);
- 
+
 
         return back()->with('msg', 'success-Foto updated');
     }
@@ -91,10 +91,16 @@ class ProfileContoller extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
+    public function show($filename)
+        {
+            $path = 'avatar/' . $filename;
 
-    }
+            if (!Storage::disk('private')->exists($path)) {
+                abort(404);
+            }
+
+            return response()->file(storage_path('app/private/' . $path));
+        }
 
     /**
      * Show the form for editing the specified resource.

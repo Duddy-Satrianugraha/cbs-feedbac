@@ -3,25 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashbordController;
 use App\Http\Controllers\Admin\AdminController;
-
-use App\Http\Controllers\OsocaController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\ProfileContoller;
-use App\Http\Controllers\PowerController;
-use App\Http\Controllers\NilaiController;
-use App\Http\Controllers\OptionController;
-use App\Http\Controllers\OpesertaController;
 use App\Http\Controllers\OpengujiController;
+use App\Http\Controllers\ProfileContoller;
 use App\Http\Controllers\PdfController;
-use App\Http\Controllers\PesertaController;
 
-use App\Http\Controllers\OtemplateController;
-use App\Http\Controllers\OujianController;
 use App\Http\Middleware\Peserta;
 use App\Http\Middleware\Panitia;
 
-use App\Http\Controllers\OfeedbackController;
-
+use App\Http\Middleware\Mahasiswa;
 use App\Http\Middleware\Osoca;
 
 
@@ -87,6 +76,12 @@ Route::prefix('peserta')->middleware(Peserta::class)->name('peserta.')->group( f
     Route::get('/logout', [PesertaController::class, 'logout'])->name('logout');
     Route::post('/scan_soal', [PesertaController::class, 'scan'])->name('sscan');
 });
+
+Route::prefix('mahasiswa')->middleware(Mahasiswa::class)->name('mahasiswa.')->group( function (){
+    Route::get('/nametag/cetak', [PdfController::class, 'mhs'])->name('nametag.cetak');
+});
+
+
 
 Route::prefix('osoca')->middleware([Osoca::class])->name('osoca.')->group( function (){
     Route::get('/logout', [OsocaController::class, 'logout'])->name('logout');

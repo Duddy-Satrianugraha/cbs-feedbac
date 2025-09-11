@@ -58,31 +58,33 @@
         <div class="nametag">
             {{-- Logo dan Nama Institusi --}}
             <div class="header">
-                <img src="{{ public_path('img/logo-unswa.png') }}" alt="Logo" style="width:40px; float: left;">
-                <span style="font-size: 18px;">Fakutas Kedokteran UGJ</h3><br>
-                <span style="font-size: 14px;">Laboratorium Keterampilan Klink</span>
+                <img src="{{ public_path('img/logo_fkugj.jpg')}}" style="width: 300px";>
+
+                <span style="font-size: 18px;">KARTU PESERTA UJIAN</span>
             </div>
             @php
             // Ambil hanya nama file dari URL
             $filename = basename($user->avatar);
 
             // Buat full path ke file lokal
-            $filepath = public_path('storage/avatar/' . $filename);
+            $filepath = route('profile.show', $filename);
             @endphp
 
-            {{-- QR code --}}
-            <div class="qrcode">
-                <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->size(300)->generate($user->slug)) }}" alt="QR Code">
-            </div>
+
+            {{-- Foto peserta --}}
+            @if ($user->avatar)
+                <img class="photo" src="{{  $avatarBase64 }}" alt="{{ $user->name }}" style="width:120px;">
+            @endif
+
 
             {{-- Identitas --}}
             <h3 style="margin: 5px 0;">{{ $user->name }}</h3>
             <p style="margin: 2px 0;">NPM: {{ $user->username }}</p>
 
-            {{-- Foto peserta --}}
-            @if ($user->avatar)
-                <img class="photo" src="{{  $filepath }}" alt="{{ $filename }}" style="width:120px; height:180px;">
-            @endif
+              {{-- QR code --}}
+            <div class="qrcode">
+                <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->size(300)->generate($user->slug)) }}" alt="QR Code">
+            </div>
 
 
         </div>

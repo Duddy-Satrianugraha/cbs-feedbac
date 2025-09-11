@@ -83,12 +83,5 @@ class User extends Authenticatable
         return $this->hasOne(DataDiri::class);
     }
 
-    public function teams()
-    {
-        return $this->belongsToMany(Team::class);
-    }
-
-     public function hasAnyTeam($team){
-        return null !== $this->teams()->where('user_id', $team)->first();
-        }
+   
 }

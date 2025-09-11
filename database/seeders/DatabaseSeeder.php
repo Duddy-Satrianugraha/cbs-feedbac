@@ -22,17 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(RoleUserSeeder::class);
-        $this->call(TeamSeeder::class);
         $this->call(OptionSeeder::class);
-         $this->call(OtemplatesTableSeeder::class);
-         $this->call(OrubriksTableSeeder::class);
-         $this->call(OujiansTableSeeder::class);
-         $this->call(OstationsTableSeeder::class);
-         $this->call(OsesisTableSeeder::class);
-         $this->call(OpesertasTableSeeder::class);
 
-        // $this->call(OnilaisTableSeeder::class);
-        // $this->call(OfeedbacksTableSeeder::class);
-        $this->call(OpengujisTableSeeder::class);
     }
 }

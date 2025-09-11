@@ -20,72 +20,13 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
-        if($input['code'] == '2932e5e2847f0af22ef9d54eb6aebda7'){
-            Validator::make($input, [
-                'name' => ['required', 'string', 'max:255'],
-                'username' => [
-                    'required',
-                    'string',
-                    'max:255',
-                    Rule::unique(User::class),
-                ],
-                'email' => [
-                    'required',
-                    'string',
-                    'email',
-                    'max:255',
-                    Rule::unique(User::class),
-                ],
-                'password' => $this->passwordRules(),
-                'captcha' => [
-                                'required','numeric',
-                                function ($attribute, $value, $fail) {
-                                    if (!verify_captcha($value)) {
-                                        $fail('Jawaban CAPTCHA salah Boss, gimana sih');
-                                    }
-                                },
-                            ],
-            ])->validate();
-            $slug = md5($input['username']);
-            $username = $input['username'];
-            $role = Role::where('u_id', 6)->first()->id;
 
-                        }elseif($input['code'] == '2930e5e2847f0af22ef9d54eb6aebda7'){
-            Validator::make($input, [
-                'name' => ['required', 'string', 'max:255'],
-                'username' => [
-                    'required',
-                    'string',
-                    'max:255',
-                    Rule::unique(User::class),
-                ],
-                'email' => [
-                    'required',
-                    'string',
-                    'email',
-                    'max:255',
-                    Rule::unique(User::class),
-                ],
-                'password' => $this->passwordRules(),
-                'captcha' => [
-                                'required','numeric',
-                                function ($attribute, $value, $fail) {
-                                    if (!verify_captcha($value)) {
-                                        $fail('Jawaban CAPTCHA salah Boss, gimana sih');
-                                    }
-                                },
-                            ],
-            ])->validate();
-            $slug = md5($input['username']);
-            $username = $input['username'];
-            $role = Role::where('u_id', 5)->first()->id;
-        } else {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'npm' => [
                 'required',
-                'string',
-                'max:255',
+                'numeric',
+                'size:9', //123170157
                 Rule::unique(User::class),
             ],
             'email' => [
@@ -107,8 +48,8 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
         $slug = md5($input['npm']);
         $username = $input['npm'];
-        $role = Role::where('u_id', 4)->first()->id;
-                    }
+        $role = Role::where('u_id', 1)->first()->id;
+
 //dd($slug);
         $user = User::create([
             'name' => $input['name'],

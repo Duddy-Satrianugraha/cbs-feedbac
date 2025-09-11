@@ -14,24 +14,21 @@ class RoleUserSeeder extends Seeder
      */
     public function run(): void
     {
-        $ultra= User::where('username','ultraman')->first();
-        $it= User::where('username','it')->first();
-        $koc= User::where('username','koc')->first();
-        $admin= User::where('username','admin')->first();
-        $materi= User::where('username','materi')->first();
+        $ultra= User::where('username','9999')->first();
+        $it= User::where('username','0000')->first();
+        $mhs= User::where('username','99')->first();
+
 
 
         $r_ultra = Role::where('u_id', 99)->first()->id;
         $r_it = Role::where('u_id', 98)->first()->id;
-        $r_koc = Role::where('u_id', 1)->first()->id;
-        $r_admin = Role::where('u_id', 2)->first()->id;
-        $r_materi = Role::where('u_id', 3)->first()->id;
+        $r_mhs = Role::where('u_id', 1)->first()->id;
+
 
 
         $ultra->roles()->attach($r_ultra);
         $it->roles()->attach($r_it);
-        $koc->roles()->attach($r_koc);
-        $admin->roles()->attach($r_admin);
-        $materi->roles()->attach($r_materi);
+        $mhs->roles()->attach($r_mhs);
+
     }
 }
