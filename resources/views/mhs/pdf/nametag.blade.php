@@ -73,7 +73,7 @@
 
             {{-- Foto peserta --}}
             @if ($user->avatar)
-                <img class="photo" src="{{  $avatarBase64 }}" alt="{{ $user->name }}" style="width:120px;">
+                <img class="photo" src="{{  $avatarBase64 }}" alt="{{ $user->name }}" style="height:130px; width:auto;">
             @endif
 
 

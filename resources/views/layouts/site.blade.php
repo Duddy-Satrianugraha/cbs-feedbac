@@ -28,12 +28,11 @@
         </div>
         <div class="login-footer">
             <div class="pull-left">
-                &copy; {{ date("Y")}} CBS-OSOCA
+                &copy; {{ date("Y")}} Feedback CBS
             </div>
             <div class="pull-right">
                 @yield('links')
-
-                <a href="{{ route('peserta.login')}}">FK UGJ</a> 
+                <a href="https://fk.ugj.ac.id" >FK UGJ</a>
             </div>
         </div>
     </div>

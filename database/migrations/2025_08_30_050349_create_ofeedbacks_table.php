@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('ofeedbacks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('oujian_id');
-            $table->foreignId('station_id');
-            $table->foreignId('peserta_id');
-            $table->string('qrpeserta');
+            $table->string('ujian_name');
+            $table->string('jenis_feedback');
             $table->string('nama');
             $table->string('npm');
-            $table->text('feedback')->nullable();
+            $table->foreignId('detail_feedback_id')->nullable();
             $table->timestamps();
         });
     }

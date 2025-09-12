@@ -5,7 +5,12 @@
 /public/storage
 /storage/*.key
 /storage/pail
-/storage
+/storage/views
+/storage/framework
+/storage/cache
+/storage/app
+/storage/logs
+/storage/debugbar
 /vendor
 .env
 .env.backup

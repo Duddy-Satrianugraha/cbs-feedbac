@@ -60,7 +60,7 @@
 @endsection
 
 @section('links')
-<a href="{{ route('penguji.login')}}">Penguji</a> |
+
 @endsection
 
 @section('javascript')

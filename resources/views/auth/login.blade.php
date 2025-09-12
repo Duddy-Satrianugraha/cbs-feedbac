@@ -29,7 +29,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-6">
-
+                <a href="{{ route('register') }}" style="color: white;">Belum punya akun? Daftar disini</a>
             </div>
             <div class="col-md-6">
                 <button class="btn btn-block" style="background-color: #450163; color: white;">Log In</button>
@@ -42,8 +42,7 @@
 @endsection
 
 @section('links')
-<a href="{{ url('/feedback')}}">Feedback</a> |
-<a href="{{ route('osoca.login')}}">OSOCA</a> |
+
 @endsection
 
 @section('javascript')

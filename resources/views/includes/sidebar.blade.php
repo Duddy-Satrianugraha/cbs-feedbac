@@ -43,6 +43,7 @@
          @can('mhs')
         @if(!is_null(Auth::user()->avatar))
         <li ><a href="{{route("mahasiswa.nametag.cetak")}}" target="_blank"><span class="fa fa-check-square-o"></span><span class="xn-text"> Cetak Nametag </span> </a></li>
+        <li class="{{ \Request::is('mahasiswa/feedback/*') || \Request::is('mahasiswa/feedback') ? 'active' : ''  }}"><a href="{{ route('mahasiswa.feedback.index')}}"><span class="fa fa-list-alt"></span><span class="xn-text"> Feedback </span> </a></li>
         @endif
         @endcan
 
