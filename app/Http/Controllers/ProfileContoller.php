@@ -135,6 +135,9 @@ class ProfileContoller extends Controller
             }
 
             $path = 'avatar/' . $filename;
+            if ($user->avatar != $path) {
+                abort(404);
+            }
 
             if (!Storage::disk('private')->exists($path)) {
                 abort(404);

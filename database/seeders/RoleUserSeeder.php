@@ -17,6 +17,11 @@ class RoleUserSeeder extends Seeder
         $ultra= User::where('username','9999')->first();
         $it= User::where('username','0000')->first();
         $mhs= User::where('username','99')->first();
+        $mhs1= User::where('username','124170114')->first();
+         $mhs2= User::where('username','124170118')->first();
+         $mhs3= User::where('username','124170157')->first();
+         $mhs4= User::where('username','124170162')->first();
+         $mhs5= User::where('username','124170039')->first();
 
 
 
@@ -29,6 +34,11 @@ class RoleUserSeeder extends Seeder
         $ultra->roles()->attach($r_ultra);
         $it->roles()->attach($r_it);
         $mhs->roles()->attach($r_mhs);
+        $mhs1->roles()->attach($r_mhs);
+        $mhs2->roles()->attach($r_mhs);
+        $mhs3->roles()->attach($r_mhs);
+        $mhs4->roles()->attach($r_mhs);
+        $mhs5->roles()->attach($r_mhs); 
 
     }
 }
