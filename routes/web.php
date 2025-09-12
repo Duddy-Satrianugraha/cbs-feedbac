@@ -26,11 +26,8 @@ Route::resource('/profile', ProfileContoller::class)->middleware(['auth', ]);
 
 Route::prefix('admin')->middleware(['auth', Panitia::class ])->name('admin.')->group( function (){
     Route::resource('/users', AdminController::class);
-
     Route::get('/power/{id}', [PowerController::class, 'index'])->name('powerup');
     Route::resource('/options', OptionController::class);
-
-
 });
 
 
