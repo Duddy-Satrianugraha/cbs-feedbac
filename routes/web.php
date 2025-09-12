@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ProfileContoller;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\OfeedbackController;
+use App\Http\Controllers\OptionController;
 use App\Http\Controllers\PowerController;
 
 use App\Http\Middleware\Panitia;
