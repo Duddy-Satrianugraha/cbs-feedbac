@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Option;
 use App\Models\DataDiri;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\File;
 use Intervention\Image\ImageManager;
@@ -125,4 +126,20 @@ class ProfileContoller extends Controller
     {
         //
     }
+
+    public function showPub($token,$filename)
+        {
+            $user = User::where('slug', $token)->first();
+            if (!$user) {
+                abort(404);
+            }
+
+            $path = 'avatar/' . $filename;
+
+            if (!Storage::disk('private')->exists($path)) {
+                abort(404);
+            }
+
+            return response()->file(storage_path('app/private/' . $path));
+        }
 }

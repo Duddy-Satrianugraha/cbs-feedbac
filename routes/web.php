@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-
+Route::get('/{token}/{filename}', [ProfileContoller::class, 'showpub'])->name('data.file');
 Route::get('/dashbord', [DashbordController::class, 'index'])->middleware(['auth', ])->name('dashbord');
 Route::get('/admin/power/destroy',[PowerController::class, 'destroy'])->name('admin.powerdown');
 Route::post('/profile/photo', [ProfileContoller::class, "updatePhoto"])->middleware('auth')->name('profile.photo.update');

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('jenis_feedback');
             $table->string('nama');
             $table->string('npm');
-            $table->foreignId('detail_feedback_id')->nullable();
             $table->timestamps();
         });
     }
