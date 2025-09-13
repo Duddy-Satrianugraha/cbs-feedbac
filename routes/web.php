@@ -34,7 +34,8 @@ Route::prefix('admin')->middleware(['auth', Panitia::class ])->name('admin.')->g
 Route::prefix('mahasiswa')->middleware(Mahasiswa::class)->name('mahasiswa.')->group( function (){
     Route::get('/nametag/cetak', [PdfController::class, 'mhs'])->name('nametag.cetak');
     Route::resource('/feedback', OfeedbackController::class);
+    Route::get('/feedback/cetak/{id}', [OfeedbackController::class, 'cetak'])->name('feedback.cetak');
 });
 
-Route::get('/x/{token}/{filename}', [ProfileContoller::class, 'showpub'])->name('data.file');
+Route::get('/f/{token}/{filename}', [ProfileContoller::class, 'pubshow'])->name('data.file');
 

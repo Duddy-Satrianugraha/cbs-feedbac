@@ -68,7 +68,7 @@
     {{-- JUDUL UJIAN --}}
     <table>
         <tr>
-            <td class="title">Feedback Ujian - {{ $ujian->name }} ta {{ $ujian->ta }}</td>
+            <td class="title">Feedback Ujian - {{ $feedback->ujian_name }}</td>
         </tr>
         <tr>
             <td class="subtitle">PSPK Fakultas Kedokteran UGJ</td>
@@ -80,20 +80,21 @@
         <tr>
             <td style="width: 30%;"><strong>Nama Mahasiswa</strong></td>
             <td style="width: 2%;">:</td>
-            <td>{{ $ofe->nama }}</td>
+            <td>{{ $feedback->nama }}</td>
         </tr>
         <tr>
             <td><strong>NPM</strong></td>
             <td>:</td>
-            <td>{{ $ofe->npm }}</td>
+            <td>{{ $feedback->npm }}</td>
         </tr>
     </table>
 
     {{-- LOOP STATION FEEDBACK --}}
-
+    @foreach($feedback->detail_feedbacks as $feeds)
+    @php $feed = feedparser($feeds->feedback)  @endphp
         <table class="feedback">
             <tr>
-                <td colspan="2" class="station-title">Feedback Peserta</td>
+                <td colspan="2" class="station-title">Feedback {{ $feeds->station }}</td>
             </tr>
             <tr>
                 <td style="width: 25%;"><strong>Kelebihan</strong></td>
@@ -108,7 +109,7 @@
                 <td>{{$feed['saran']}}</td>
             </tr>
         </table>
-
+        @endforeach
 
 </body>
 </html>

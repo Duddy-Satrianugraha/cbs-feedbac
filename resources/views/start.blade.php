@@ -22,19 +22,19 @@
           <div class="widget widget-default widget-carousel">
             <div class="owl-carousel" id="owl-example">
                 <div>
-                    <div class="widget-title">Jumlah</div>
-                    <div class="widget-subtitle">Ujian</div>
-                    <div class="widget-int"> - </div>
+                    <div class="widget-title">UJIAN</div>
+                    <div class="widget-subtitle">anda</div>
+                    <div class="widget-int"> {{ $ujian }} </div>
                 </div>
                 <div>
-                    <div class="widget-title">Jumlah</div>
-                    <div class="widget-subtitle">Sesi</div>
-                    <div class="widget-int"> - </div>
+                    <div class="widget-title">OSCE</div>
+                    <div class="widget-subtitle">anda</div>
+                    <div class="widget-int"> {{ $osceu }} </div>
                 </div>
                 <div>
-                    <div class="widget-title">Jumlah</div>
-                    <div class="widget-subtitle">Station</div>
-                    <div class="widget-int"> - </div>
+                    <div class="widget-title">OSOCA</div>
+                    <div class="widget-subtitle">anda</div>
+                    <div class="widget-int">{{ $osocau }}</div>
                 </div>
             </div>
             <div class="widget-controls">
@@ -52,9 +52,9 @@
                 <span class="fa fa-user-md"></span>
             </div>
             <div class="widget-data">
-                <div class="widget-int num-count"> - </div>
-                <div class="widget-title">penguji</div>
-                <div class="widget-subtitle">terdaftar pada CBS-OSOCA</div>
+                <div class="widget-int num-count"> {{ $osce }} </div>
+                <div class="widget-title">Feedback OSCE</div>
+                <div class="widget-subtitle">terdaftar pada CBS FK UGJ</div>
             </div>
             <div class="widget-controls">
                 <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
@@ -70,9 +70,9 @@
                 <span class="fa fa-user"></span>
             </div>
             <div class="widget-data">
-                <div class="widget-int num-count">      - </div>
-                <div class="widget-title">Mahasiswa</div>
-                <div class="widget-subtitle">terdaftar pada CBS-OSOCA</div>
+                <div class="widget-int num-count"> {{ $osoca }} </div>
+                <div class="widget-title">Feedback OSOCA</div>
+                <div class="widget-subtitle">terdaftar pada CBS FK UGJ</div>
             </div>
             <div class="widget-controls">
                 <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
@@ -117,8 +117,8 @@
             </div>
             <div class="panel-body">
                 <a href="{{route("mahasiswa.nametag.cetak")}}" class="btn btn-primary btn-sm" target="_blank">Catak Name Tag</a> <br><br>
-                <p>Name tag ini dapat digunakan untuk ujian OSOCA dan OSCE, pastikan anda membawa nametag ini selama Osce. <br>
-                silahkan print dan masukan kedalam name tag.</p>
+                <p>Name tag ini dapat digunakan untuk ujian OSOCA dan OSCE, pastikan anda membawa nametag ini selama ujian. <br>
+                silahkan print dan masukan kedalam tag.</p>
                  </div>
         </div>
 

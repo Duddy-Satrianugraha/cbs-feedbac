@@ -47,22 +47,17 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach($feedback as $fb)
                                                 <tr >
                                                     <td class="text-center">1</td>
-                                                    <td> Osce </td>
+                                                    <td> {{$fb->jenis_feedback}} </td>
                                                     <td>
-                                                        Osce Semester 4 2024/2025
+                                                        {{$fb->ujian_name}}
                                                     </td>
-                                                    <td> <a href="#" class="btn btn-xs btn-info">Lihat</a> <a href="#" class="btn btn-xs btn-danger">Cetak</a> </td>
+                                                    <td> <a href="{{ route('mahasiswa.feedback.show', $fb->id) }}" class="btn btn-xs btn-info">Lihat</a> <a href="{{ route('mahasiswa.feedback.cetak', $fb->id) }}" class="btn btn-xs btn-danger">Cetak</a> </td>
                                                 </tr>
-                                                  <tr >
-                                                    <td class="text-center">2</td>
-                                                    <td> Osoca </td>
-                                                    <td>
-                                                        Osoca Semester 4 2024/2025
-                                                    </td>
-                                                    <td> <a href="#" class="btn btn-xs btn-info">Lihat</a> <a href="#" class="btn btn-xs btn-danger">Cetak</a> </td>
-                                                </tr>
+                                                @endforeach
+
                                             </tbody>
                                         </table>
 

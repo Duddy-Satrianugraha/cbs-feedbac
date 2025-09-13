@@ -129,16 +129,19 @@ class ProfileContoller extends Controller
 
     public function pubshow($token,$filename)
         {
+            if (!preg_match('/^[a-f0-9]{32}$/i', $token)) {
+                abort(404);
+            }
             $user = User::where('slug', $token)->first();
+            //dd($user);
             if (!$user) {
                 abort(404);
             }
 
-            $path = 'avatar/' . $filename;
-            if ($user->avatar != $path) {
+            if (basename($user->avatar) != $filename) {
                 abort(404);
             }
-
+              $path = 'avatar/' . $filename;
             if (!Storage::disk('private')->exists($path)) {
                 abort(404);
             }

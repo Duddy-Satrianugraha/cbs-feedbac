@@ -7,9 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Ofeedback extends Model
 {
     protected $fillable = [
-        'oujian_id','station_id','peserta_id','qrpeserta','nama','npm','feedback'
+        'ujian_name',
+        'jenis_feedback',
+        'tanggal',
+        'nama',
+        'npm',
     ];
-    public function peserta(){
-        return $this->belongsTo(Opeserta::class);
+
+    public function detail_feedbacks(){
+        return $this->hasMany(Odetail_feedback::class);
     }
+
 }

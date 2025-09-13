@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleUserSeeder::class);
         $this->call(OptionSeeder::class);
 
+        $this->call(PersonalAccessTokensTableSeeder::class);
     }
 }

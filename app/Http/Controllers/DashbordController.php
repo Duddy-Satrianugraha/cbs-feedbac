@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ofeedback;
 use App\Models\Opeserta;
 use App\Models\Osesi;
 use Illuminate\Http\Request;
@@ -21,7 +22,14 @@ class DashbordController extends Controller
     {
 
            //$penguji = Ostation::whereNotNull('nama_penguji')->get();
-        return view('start');
+           $osce = Ofeedback::where('jenis_feedback', 'OSCE')->count();
+           $osoca = Ofeedback::where('jenis_feedback', 'OSOCA')->count();
+           $user = Auth::user();
+           $ujian = Ofeedback::where('npm', $user->username)->count();
+           $osceu = Ofeedback::where('npm', $user->username)->where('jenis_feedback', 'OSCE')->count();
+           $osocau = Ofeedback::where('npm', $user->username)->where('jenis_feedback', 'OSOCA')->count();
+
+        return view('start', compact('osce', 'osoca', 'osceu', 'osocau', 'ujian'));
     }
 
     /**
