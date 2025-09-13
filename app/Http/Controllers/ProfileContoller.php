@@ -93,9 +93,9 @@ class ProfileContoller extends Controller
      * Display the specified resource.
      */
     public function show($filename)
-        {
-            $path = 'avatar/' . $filename;
-
+        {   //dd($filename);
+            $path = 'avatar/' . basename($filename);
+            //dd($path);
             if (!Storage::disk('private')->exists($path)) {
                 abort(404);
             }
@@ -127,7 +127,7 @@ class ProfileContoller extends Controller
         //
     }
 
-    public function showPub($token,$filename)
+    public function pubshow($token,$filename)
         {
             $user = User::where('slug', $token)->first();
             if (!$user) {

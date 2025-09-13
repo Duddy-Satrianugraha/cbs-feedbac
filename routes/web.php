@@ -18,11 +18,11 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/{token}/{filename}', [ProfileContoller::class, 'showpub'])->name('data.file');
+
 Route::get('/dashbord', [DashbordController::class, 'index'])->middleware(['auth', ])->name('dashbord');
 Route::get('/admin/power/destroy',[PowerController::class, 'destroy'])->name('admin.powerdown');
 Route::post('/profile/photo', [ProfileContoller::class, "updatePhoto"])->middleware('auth')->name('profile.photo.update');
-Route::resource('/profile', ProfileContoller::class)->middleware(['auth', ]);
+Route::resource('/profile', ProfileContoller::class)->middleware(['auth']);
 
 Route::prefix('admin')->middleware(['auth', Panitia::class ])->name('admin.')->group( function (){
     Route::resource('/users', AdminController::class);
@@ -36,5 +36,5 @@ Route::prefix('mahasiswa')->middleware(Mahasiswa::class)->name('mahasiswa.')->gr
     Route::resource('/feedback', OfeedbackController::class);
 });
 
-
+Route::get('/x/{token}/{filename}', [ProfileContoller::class, 'showpub'])->name('data.file');
 
