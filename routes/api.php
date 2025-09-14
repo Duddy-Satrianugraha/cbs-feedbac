@@ -28,7 +28,7 @@ Route::middleware('auth:sanctum')->group(function () {
         return response()->json($result);
     });
 
-    Route::post('/feedbacks', function (Request $request) {
+Route::post('/feedbacks', function (Request $request) {
     $validated = $request->validate([
         'feedbacks' => 'required|array',
         'feedbacks.*.ujian_name' => 'required|string',
