@@ -21,12 +21,12 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input): User
     {
 
-        Validator::make($input, [
+           $validator = Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
-            'npm' => [
+            'username' => [
                 'required',
                 'numeric',
-                'size:9', //123170157
+                'digits:9',
                 Rule::unique(User::class),
             ],
             'email' => [
@@ -38,16 +38,33 @@ class CreateNewUser implements CreatesNewUsers
             ],
             'password' => $this->passwordRules(),
             'captcha' => [
-                            'required','numeric',
-                            function ($attribute, $value, $fail) {
-                                if (!verify_captcha($value)) {
-                                    $fail('Jawaban CAPTCHA salah cuy, gimana sih');
-                                }
-                            },
-                        ],
-        ])->validate();
-        $slug = md5($input['npm']);
-        $username = $input['npm'];
+                'required','numeric',
+                function ($attribute, $value, $fail) {
+                    if (!verify_captcha($value)) {
+                        $fail('Jawaban CAPTCHA salah cuy, gimana sih 😅');
+                    }
+                },
+            ],
+        ], [
+            // custom messages di sini
+            'name.required'     => 'Nama wajib diisi.',
+            'name.max'          => 'Nama maksimal 255 karakter.',
+            'username.required' => 'NPM wajib diisi.',
+            'username.numeric'  => 'NPM harus berupa angka.',
+            'username.digits'   => 'NPM harus terdiri dari 9 digit angka.',
+            'username.unique'   => 'NPM ini sudah terdaftar, silakan login.',
+            'email.required'    => 'Email wajib diisi.',
+            'email.email'       => 'Format email tidak valid.',
+            'email.max'         => 'Email terlalu panjang, maksimal 255 karakter.',
+            'email.unique'      => 'Email ini sudah digunakan.',
+            'password.required' => 'Kata sandi wajib diisi.',
+            'captcha.required'  => 'CAPTCHA harus diisi.',
+            'captcha.numeric'   => 'Jawaban CAPTCHA harus berupa angka.',
+        ]);
+
+        $validator->validate();
+        $slug = md5($input['username']);
+        $username = $input['username'];
         $role = Role::where('u_id', 1)->first()->id;
 
 //dd($slug);

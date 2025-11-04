@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('ujian_name');
             $table->string('jenis_feedback');
             $table->string('nama');
+            $table->string('tanggal');
             $table->string('npm');
             $table->timestamps();
         });
